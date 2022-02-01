@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta charset="UTF-8">
+        <title>Nocturnal_OFC</title>
+        <meta name="robots" content="noindex">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600" rel="stylesheet" type="text/css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/vnd.microsoft.icon" href="NocturnalOFCicon.ico" sizes="16x16">
+        <style class="INLINE_PEN_STYLESHEET_ID">
+          .cont {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
+      
+      .slider {
+        position: relative;
+        height: 100%;
+        transform: translate3d(0, 0, 0);
+        will-change: transform;
+        cursor: all-scroll;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+      }
+      
+      .slide {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      .slide--1 {
+        left: 0%;
+      }
+      .slide--2 {
+        left: 100%;
+      }
+      .slide--3 {
+        left: 200%;
+      }
+      .slide--4 {
+        left: 300%;
+      }
+      .slide--5 {
+        left: 400%;
+      }
+      .slide__darkbg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translate3d(0, 0, 0);
+        will-change: transform;
+        z-index: 10;
+      }
+      .slide__text-wrapper {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        z-index: 15;
+      }
+      .slide__letter {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: translate3d(0, 0, 0);
+        -webkit-text-fill-color: transparent !important;
+        -webkit-background-clip: text !important;
+        font-size: 50vw;
+        font-weight: 800;
+        color: #000;
+        z-index: 2;
+        will-change: transform;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+      }
+      .slide__text {
+        font-size: 8vw;
+        font-weight: 800;
+        text-transform: uppercase;
+        transform: translate3d(0, 0, 0);
+        letter-spacing: 12px;
+        color: #fff;
+        will-change: transform;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+      }
+      .slide__text:nth-child(odd) {
+        z-index: 2;
+      }
+      .slide__text:nth-child(even) {
+        z-index: 1;
+      }
+      .slide--1__darkbg {
+        left: 0%;
+        background: url("https://i.pinimg.com/564x/f0/33/8f/f0338f30c448827c402890334cc31d4f.jpg") center center no-repeat;
+        background-size: cover;
+        background-position: 0px center, 0px center;
+        transform: translate3d(0, 0, 0);
+        will-change: transform;
+      }
+      .slide--1__darkbg:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.83);
+      }
+      .slide--1__letter {
+        background: url("https://i.pinimg.com/564x/f0/33/8f/f0338f30c448827c402890334cc31d4f.jpg") center center no-repeat;
+        background-position: 0px center, 0px center;
+        background-size: cover;
+      }
+      
+      .slide--4__darkbg:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(11, 15, 39, 0.83);
+      }
+      
+
+      .slide--5__darkbg:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(11, 15, 39, 0.83);
+      }
+
+      
+      .nav {
+        position: absolute;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style-type: none;
+        z-index: 10;
+      }
+      .nav__slide {
+        position: relative;
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      @media screen and (max-width: 400px) {
+        .nav__slide {
+          width: 22px;
+          height: 22px;
+        }
+      }
+      .nav__slide:hover:after {
+        transform: translate(-50%, -50%) scale(1, 1);
+        opacity: 1;
+      }
+      .nav__slide:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0, 0);
+        width: 75%;
+        height: 75%;
+        border-radius: 50%;
+        background-color: #fff;
+        opacity: 0;
+        transition: 300ms;
+      }
+      .nav__slide--1 {
+        margin-left: 0;
+      }
+      
+      .nav-active:after {
+        transform: translate(-50%, -50%) scale(1, 1);
+        opacity: 1;
+      }
+      
+      .side-nav {
+        position: absolute;
+        width: 10%;
+        height: 100%;
+        top: 0;
+        z-index: 20;
+        cursor: pointer;
+        opacity: 0;
+        transition: 300ms;
+      }
+      .side-nav:hover {
+        opacity: 0.1;
+      }
+      .side-nav--right {
+        right: 0;
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
+      }
+      .side-nav--left {
+        left: 0;
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
+      }
+      
+      html {
+        box-sizing: border-box;
+        font-family: "Open Sans", sans-serif;
+      }
+      
+      *, *:before, *:after {
+        box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      
+      body {
+        background-color: #000;
+        overflow: hidden;
+      }
+        </style>
+      
+        
+      <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeConsoleRunner-d0f3648046d2aaca07bd0037b9e061a26c74a8a999b75672ad6a638cca641472.js"></script>
+      <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRefreshCSS-4793b73c6332f7f14a9b6bba5d5e62748e9d1bd0b5c52d7af6376f3d1c625d7e.js"></script>
+      <script src="https://cpwebassets.codepen.io/assets/editor/iframe/iframeRuntimeErrors-4f205f2c14e769b448bcf477de2938c681660d5038bc464e3700256713ebe261.js"></script>
+      </head>
+      <body>
+        <div class="cont">
+          <div class="slider animation" style="transform: translate3d(0%, 0px, 0px);"><div data-target="1" class="slide slide--1">
+                                  <div class="slide__darkbg slide--1__darkbg" style="transform: translate3d(0%, 0px, 0px);"></div>
+                                  <div class="slide__text-wrapper slide--1__text-wrapper"><div class="slide__letter slide--1__letter" style="transform: translate3d(0px, 0px, 0px);">N
+                              </div><div class="slide__text slide__text--1" style="transform: translate3d(0px, 0px, 0px);">Noct
+                                  </div><div class="slide__text slide__text--2" style="transform: translate3d(0px, 0px, 0px);">u
+                                  </div><div class="slide__text slide__text--3" style="transform: translate3d(0px, 0px, 0px);">r
+                                  </div><div class="slide__text slide__text--4" style="transform: translate3d(0px, 0px, 0px);">nal
+                                  </div><div class="slide__text slide__text--5" style="transform: translate3d(0px, 0px, 0px);">_OFC
+                                  </div></div>
+                              </div></div>
+          <ul class="nav"></ul></div>
+          <div data-target="right" class="side-nav side-nav--right"></div>
+          <div data-target="left" class="side-nav side-nav--left"></div>
+      
+        
+      <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://cdpn.io/cp/internal/boomboom/pen.js?key=pen.js-0ba65001-0e9d-02de-dbbc-725413dff765" crossorigin=""></script>
+      
+      
+      </body>
+</html>
